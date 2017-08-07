@@ -1,16 +1,23 @@
 import turtle
 import random
-SIZE_X=800
-SIZE_Y=600
+turtle.tracer(1,0)
+SIZE_X=1000
+SIZE_Y=700
 turtle.setup(SIZE_X,SIZE_Y)
 turtle.penup()
 SQUARE_SIZE=20
 START_LENGTH=7
 player=turtle.clone()
-player.shape("circle")
+turtle.register_shape("player.gif")
+player.shape("player.gif")
 #put the player gif in the row above .don't forget to define it
 turtle.hideturtle()
 pos_list=[]
+lava_hight=50
+turtle.goto(-SIZE_X/2,-SIZE_Y/2+lava_hight)
+turtle.pendown()
+turtle.goto(SIZE_X/2,-SIZE_Y/2+lava_hight)
+player.goto(-SIZE_X/2,-SIZE_Y/2+lava_hight+35)
 for i in range(START_LENGTH):
     x_pos=player.pos()[0]
     y_pos=player.pos()[1]
@@ -49,5 +56,7 @@ def move_player():
         turtle.ontimer(player.goto(player.pos()[0],player.pos()[1]-SQUARE_SIZE),jump_speed)
         print("you moved up")
         
-
+    if player.pos()<=-SIZE_Y/2+lava_hight:
+        print("game over!!!")
+        quit()
 
