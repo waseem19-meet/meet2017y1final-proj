@@ -1,28 +1,44 @@
 import turtle
 import random
 SIZE_X=1000
-SIZE_Y=3000
-START_LENGTH=270
-START_HEIGHT=50
-TOP=20
+SIZE_Y=700
 turtle.setup(SIZE_X,SIZE_Y)
-turtle.penup()
 turtle.shape('square')
+
 stamp_list=[]
-cloud=turtle.clone() 
-cloud_pos=[]
-num_clouds=10
-cloud_space=(SIZE_Y-START_LENGTH-TOP)/(num_clouds+1)
+turtle.hideturtle()
+
+cloud=turtle.clone()
 
 
-for num in range(num_clouds):
-    x=-SIZE_X/2
-    y=START_HEIGHT+(num+1)*cloud_space
+##cloud_pos=[]
+##num_clouds=5
+##cloud_space=(SIZE_Y-START_LENGTH-TOP)/(num_clouds+1)
 
-    cloud.goto(x,y)
-    cloud_pos.append((x,y))
-    new_stamp=cloud_stamp()
-    cloud_stamp.append(new_stamp)
+cloud.penup()
+cloud.goto(-300,-300)
+cloud.showturtle()
+cloud.stamp()
+cloud.goto(-200,-200)
+cloud.stamp()
+cloud.goto(-100,-100)
+cloud.stamp()
+cloud.goto(0,0)
+cloud.stamp()
+cloud.goto(100,100)
+cloud.stamp()
+cloud.goto(200,200)
+cloud.stamp()
+
+
+
+
+    
+
+##    cloud.goto(x,y)
+##    cloud_pos.append((x,y))
+##    new_stamp=cloud_stamp()
+##    cloud_stamp.append(new_stamp)
 
 
 
