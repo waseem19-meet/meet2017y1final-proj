@@ -1,5 +1,7 @@
 import turtle
 import random
+
+turtle.bgpic('sky.gif')
 turtle.tracer(1,0)
 SIZE_X=1000
 SIZE_Y=700
@@ -14,6 +16,9 @@ player.shape("player.gif")
 turtle.hideturtle()
 pos_list=[]
 lava_hight=50
+turtle.register_shape("lava.gif")
+
+turtle.shape("lava.gif")
 turtle.goto(-SIZE_X/2,-SIZE_Y/2+lava_hight)
 turtle.pendown()
 turtle.goto(SIZE_X/2,-SIZE_Y/2+lava_hight)
