@@ -1,5 +1,7 @@
 import turtle
 import random
+
+turtle.bgpic('sky.gif')
 turtle.tracer(1,0)
 SIZE_X=1000
 SIZE_Y=700
@@ -14,6 +16,9 @@ player.shape("player.gif")
 turtle.hideturtle()
 pos_list=[]
 lava_hight=50
+turtle.register_shape("lava.gif")
+
+turtle.shape("lava.gif")
 turtle.goto(-SIZE_X/2,-SIZE_Y/2+lava_hight)
 turtle.pendown()
 turtle.goto(SIZE_X/2,-SIZE_Y/2+lava_hight)
@@ -27,10 +32,20 @@ for i in range(START_LENGTH):
     pos_list.append(my_pos)
 
 UP_ARROW = "Up"
+
+LEFT_ARROW = "Left" 
+DOWN_ARROW = "Down"  
+RIGHT_ARROW = "Right"  
 TIME_STEP = 1000
 SPACEBAR = "space"
 UP = 0
+DOWN=1
+LEFT=2
+RIGHT=3
 UP_EDGE=250
+DOWN_EDGE=-250
+RIGHT_EDGE=400
+LEFT_EDGE=-400
 jump_speed=100
 direction=UP
 
@@ -40,7 +55,29 @@ def up():
     move_player()
     print("you pressed up")
 
+def down():
+    global direction
+    direction=DOWN
+    move_player()
+    print("you pressed down")
+    
+def left():
+    global direction
+    direction=LEFT
+    move_player()
+    print("you pressed left")
+
+def right():
+    global direction
+    direction=RIGHT
+    move_player()
+    print("you pressed right")
+
 turtle.onkeypress(up,UP_ARROW)
+
+turtle.onkeypress(down,DOWN_ARROW)
+turtle.onkeypress(left,LEFT_ARROW)
+turtle.onkeypress(right,RIGHT_ARROW)
 turtle.listen()
 def move_player():
     my_pos=player.pos()
@@ -56,7 +93,11 @@ def move_player():
         turtle.ontimer(player.goto(player.pos()[0],player.pos()[1]-SQUARE_SIZE),jump_speed)
         print("you moved up")
         
-    if player.pos()<=-SIZE_Y/2+lava_hight:
+    if direction==RIGHT:
+        player.goto(x_pos+SQUARE_SIZE,y_pos)
+        print("you moved right")  
+        
+    if player.pos()[1]<=-SIZE_Y/2+lava_hight:
         print("game over!!!")
         quit()
 
