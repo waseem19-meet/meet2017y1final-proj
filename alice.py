@@ -225,4 +225,30 @@ turtle.onkeypress(right,RIGHT_ARROW)
 turtle.listen()
 
 
+def move_cloud():
+    my_pos=snake.pos()
+    x_pos=my_pos[0]
+    y_pos=my_pos[1]
+
+    if direction==RIGHT:
+        cloud.goto(x_pos+SQUARE_SIZE,y_pos)
+        print('You moved right!')
+    elif direction==LEFT:
+        cloud.goto(x_pos - SQUARE_SIZE,y_pos)
+        print('You moved left!')
+    elif direction==DOWN:
+        cloud.goto(x_pos,y_pos- SQUARE_SIZE)
+        print('You moved down!')
+    else:
+        cloud.goto(x_pos ,y_pos+SQUARE_SIZE)
+        print('You moved up!')
+
+    my_pos=cloud.pos()
+    pos_list.append(my_pos)
+    new_stamp=snake.stamp()
+stamp_list.append(new_stamp)
+
+turtle.listen()
+
+
 
