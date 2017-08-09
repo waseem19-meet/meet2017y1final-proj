@@ -17,6 +17,7 @@ turtle.hideturtle()
 pos_list=[]
 lava_hight=40
 turtle.register_shape("lava.gif")
+<<<<<<< HEAD
 lava=turtle.clone()
 lava.shape("lava.gif")
 lava.showturtle()
@@ -24,6 +25,14 @@ lava.goto(0,-SIZE_Y/2+lava_hight)
 #turtle.pendown()
 ##turtle.goto(SIZE_X/2,-SIZE_Y/2+lava_hight)
 player.goto(-SIZE_X/2+25,-SIZE_Y/2+lava_hight+55)
+=======
+
+turtle.shape("lava.gif")
+turtle.goto(-SIZE_X/2,-SIZE_Y/2+lava_hight)
+turtle.pendown()
+turtle.goto(SIZE_X/2,-SIZE_Y/2+lava_hight)
+player.goto(-SIZE_X/2+35,-SIZE_Y/2+lava_hight+35)
+>>>>>>> b6ad314d7363c9a8d600794f4bf70480642a6616
 for i in range(START_LENGTH):
     x_pos=player.pos()[0]
     y_pos=player.pos()[1]
@@ -94,10 +103,13 @@ def move_player():
         turtle.ontimer(player.goto(player.pos()[0],player.pos()[1]-SQUARE_SIZE),jump_speed)
         print("you moved up")
         
+<<<<<<< HEAD
+=======
     if direction==RIGHT:
         player.goto(x_pos+SQUARE_SIZE,y_pos)
         print("you moved right")  
         
+>>>>>>> 77aa179b5ec2abc62c7afe17591459dad5784ab5
     if player.pos()[1]<=-SIZE_Y/2+lava_hight:
         print("game over!!!")
         quit()
