@@ -22,10 +22,8 @@ turtle.showturtle()
 
 ##if player.pos() <= -size_y/2+lava_height:
 
-##print('your player is barbequed now')
 
 ##    print('game over')
 
-##    print('all rights belong to team miaw :)')
 
 ##    quit()

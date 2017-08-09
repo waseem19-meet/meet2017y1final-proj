@@ -15,14 +15,15 @@ player.shape("player.gif")
 #put the player gif in the row above .don't forget to define it
 turtle.hideturtle()
 pos_list=[]
-lava_hight=50
+lava_hight=40
 turtle.register_shape("lava.gif")
-
-turtle.shape("lava.gif")
-turtle.goto(-SIZE_X/2,-SIZE_Y/2+lava_hight)
-turtle.pendown()
-turtle.goto(SIZE_X/2,-SIZE_Y/2+lava_hight)
-player.goto(-SIZE_X/2,-SIZE_Y/2+lava_hight+35)
+lava=turtle.clone()
+lava.shape("lava.gif")
+lava.showturtle()
+lava.goto(0,-SIZE_Y/2+lava_hight)
+#turtle.pendown()
+##turtle.goto(SIZE_X/2,-SIZE_Y/2+lava_hight)
+player.goto(-SIZE_X/2+25,-SIZE_Y/2+lava_hight+55)
 for i in range(START_LENGTH):
     x_pos=player.pos()[0]
     y_pos=player.pos()[1]
