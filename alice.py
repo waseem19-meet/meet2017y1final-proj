@@ -2,6 +2,14 @@ import turtle
 import random
 import time
 turtle.bgpic("sky.gif")
+
+from pygame import mixer # Load the required library
+
+mixer.init()
+mixer.music.load('music.mp3')
+mixer.music.play()
+
+
 #-------------VARIABLES------------
 score=0
 SIZE_X=1000
@@ -54,6 +62,10 @@ cloud=turtle.clone()
 cloud.shape('cloud.gif')
 cloud.penup()
 
+
+
+
+
 ##cloud_pos=[]
 ##num_clouds=5
 ##cloud_space=(SIZE_Y-START_LENGTH-TOP)/(num_clouds+1)
@@ -67,13 +79,17 @@ for num in range(-300, 200 + 1, 100):
     cloud_pos_list.append(cloud.pos())
     cloud_stamp_list.append(cloud.stamp())
 
-turtle.register_shape('poorppl.gif')
+
+turtle.register_shape('poorppl1.gif')
 cloud.goto(300,300)
+cloud.stamp()
 poor=turtle.clone()
-poor.shape('poorppl.gif')
+poor.shape('poorppl1.gif')
 poor.goto(300,330)
 poor.stamp()
-        
+
+
+
 ##cloud.goto(-300,-300)
 ##cloud.showturtle()
 ##cloud.stamp()
@@ -269,12 +285,3 @@ turtle.onkeypress(right,RIGHT_ARROW)
     
 
 turtle.listen()
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
->>>>>>> f04c9479a994c2d7b8316470dd80ace5e39dca60
