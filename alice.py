@@ -1,5 +1,6 @@
 import turtle
 import random
+import time
 turtle.bgpic("sky.gif")
 #-------------VARIABLES------------
 score=0
@@ -65,6 +66,13 @@ for num in range(-300, 200 + 1, 100):
     cloud.goto(num, num)
     cloud_pos_list.append(cloud.pos())
     cloud_stamp_list.append(cloud.stamp())
+
+turtle.register_shape('poorppl.gif')
+cloud.goto(300,300)
+poor=turtle.clone()
+poor.shape('poorppl.gif')
+poor.goto(300,330)
+poor.stamp()
         
 ##cloud.goto(-300,-300)
 ##cloud.showturtle()
@@ -171,6 +179,8 @@ def move_player():
         print("game over!!!")
         quit()
 
+        
+
 turtle.hideturtle()
 turtle.register_shape("pizza.gif")
 turtle.register_shape("cake.gif")
@@ -259,15 +269,3 @@ turtle.onkeypress(right,RIGHT_ARROW)
     
 
 turtle.listen()
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 8e937dfc97ef04ba5255050185682f3d67223ac6
