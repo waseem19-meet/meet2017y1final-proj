@@ -36,8 +36,6 @@ lava.showturtle()
 lava.goto(0,-SIZE_Y/2+lava_hight)
 turtle.penup()
 turtle.goto(-SIZE_X/2,-SIZE_Y/2+lava_hight)
-#turtle.pendown()
-#turtle.goto(SIZE_X/2,-SIZE_Y/2+lava_hight)
 
 player.penup()
 player.goto(-SIZE_X/2+100,-SIZE_Y/2+lava_hight+40)
@@ -53,9 +51,7 @@ cloud=turtle.clone()
 cloud.shape('cloud.gif')
 cloud.penup()
 
-##cloud_pos=[]
-##num_clouds=5
-##cloud_space=(SIZE_Y-START_LENGTH-TOP)/(num_clouds+1)
+
 
 cloud.penup()
 cloud.showturtle()
@@ -63,22 +59,10 @@ cloud_pos_list=[]
 cloud_stamp_list=[]
 for num in range(-300, 200 + 1, 100):
     cloud.goto(num, num)
+    cloud.clone()
     cloud_pos_list.append(cloud.pos())
     cloud_stamp_list.append(cloud.stamp())
         
-##cloud.goto(-300,-300)
-##cloud.showturtle()
-##cloud.stamp()
-##cloud.goto(-200,-200)
-##cloud.stamp()
-##cloud.goto(-100,-100)
-##cloud.stamp()
-##cloud.goto(0,0)
-##cloud.stamp()
-##cloud.goto(100,100)
-##cloud.stamp()
-##cloud.goto(200,200)
-##cloud_stamp_list.append(cloud.stamp()) 
 
 UP_ARROW = "Up"
 RIGHT_ARROW='Right'
@@ -103,25 +87,25 @@ jump_y =[1,1,1,1,1,1,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-
 #-----------FUNCTIONS-------------
 
 
-##def move_clouds():
-##    for index in range(len(cloud_pos_list)):
-##        cloud_pos = cloud_pos_list[index]
-##        cloud_stamp = cloud_stamp_list[index]
-##        cloud.clearstamp(cloud_stamp)
-##        cloud.goto(cloud_pos[0] + 100, cloud_pos[1])
-##        cloud_pos_list.append(cloud_pos)
-##        cloud_stamp_list.append(cloud.stamp())
-##
-##    for index in range(len(cloud_pos_list)):
-##        cloud_pos = cloud_pos_list[index]
-##        cloud_stamp = cloud_stamp_list[index]
-##        cloud.clearstamp(cloud_stamp)
-##        cloud.goto(cloud_pos[0] - 100, cloud_pos[1])
-##        cloud_pos_list.append(cloud_pos)
-##        cloud_stamp_list.append(cloud.stamp())
-##
-##    turtle.ontimer(move_clouds, 10000)
-##move_clouds()
+def move_clouds():
+    for index in range(len(cloud_pos_list)):
+        cloud_pos = cloud_pos_list[index]
+        cloud_stamp = cloud_stamp_list[index]
+        cloud.clearstamp(cloud_stamp)
+        cloud.goto(cloud_pos[0] + 100, cloud_pos[1])
+        cloud_pos_list.append(cloud_pos)
+        cloud_stamp_list.append(cloud.stamp())
+
+    for index in range(len(cloud_pos_list)):
+        cloud_pos = cloud_pos_list[index]
+        cloud_stamp = cloud_stamp_list[index]
+        cloud.clearstamp(cloud_stamp)
+        cloud.goto(cloud_pos[0] - 100, cloud_pos[1])
+        cloud_pos_list.append(cloud_pos)
+        cloud_stamp_list.append(cloud.stamp())
+
+    turtle.ontimer(move_clouds, 5000)
+move_clouds()
     
 
     
@@ -187,7 +171,7 @@ food_stamp_list=[]
 food_pos=[]
 
 food.penup()
-##food_pos_list=[(-300,-250),(-200,-150),(-100,-50),(0,50),(100,150),(200,250)]
+food_pos_list=[(-300,-250),(-200,-150),(-100,-50),(0,50),(100,150),(200,250)]
 food_shape_list = ["pizza.gif", "cake.gif", "cherry.gif", "chips.gif", "dounat.gif", "hamburger.gif"]
 food_pos_list = []
 n=0
@@ -198,6 +182,7 @@ for pos in cloud_pos_list:
     stamp1=food.stamp()
     food_stamp_list.append(stamp1)
     n+=1
+    
 
 
 food.hideturtle()    
@@ -227,29 +212,11 @@ def right():
 for i in range(START_LENGTH):
     x_pos=player.pos()[0]
     y_pos=player.pos()[1]
-   #x_pos+=SQUARE_SIZE
+    x_pos+=SQUARE_SIZE
     my_pos = (x_pos,y_pos)
     player.goto(x_pos,y_pos)
     pos_list.append(my_pos)
 
-
-
-
-##
-##if direction==UP:
-##    cloud.stamp.goto(x-100,y-100)
-
-
-
-
-
-
-    
-
-##    cloud.goto(x,y)
-##    cloud_pos.append((x,y))
-##    new_stamp=cloud_stamp()
-##    cloud_stamp.append(new_stamp)
 turtle.onkeypress(left,LEFT_ARROW)
 turtle.onkeypress(up,UP_ARROW)
 turtle.onkeypress(right,RIGHT_ARROW)
@@ -265,9 +232,3 @@ turtle.listen()
 
 
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 8e937dfc97ef04ba5255050185682f3d67223ac6
