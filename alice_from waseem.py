@@ -269,12 +269,4 @@ turtle.onkeypress(right,RIGHT_ARROW)
     
 
 turtle.listen()
-<<<<<<< HEAD
-=======
 
-
-
-
-
-
->>>>>>> f04c9479a994c2d7b8316470dd80ace5e39dca60

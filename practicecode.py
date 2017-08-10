@@ -62,6 +62,8 @@ for num in range(-300, 200 + 1, 100):
     cloud.clone()
     cloud_pos_list.append(cloud.pos())
     cloud_stamp_list.append(cloud.stamp())
+
+print(cloud_pos_list)
         
 
 UP_ARROW = "Up"
@@ -87,25 +89,32 @@ jump_y =[1,1,1,1,1,1,0,0,0,0,0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-
 #-----------FUNCTIONS-------------
 
 
-def move_clouds():
-    for index in range(len(cloud_pos_list)):
-        cloud_pos = cloud_pos_list[index]
-        cloud_stamp = cloud_stamp_list[index]
-        cloud.clearstamp(cloud_stamp)
-        cloud.goto(cloud_pos[0] + 100, cloud_pos[1])
-        cloud_pos_list.append(cloud_pos)
-        cloud_stamp_list.append(cloud.stamp())
+##def move_clouds():
+##    temp_list = cloud_pos_list[:]
+##    for index in range(len(temp_list)):
+##        cloud_pos = temp_list[index]
+##        cloud_stamp = cloud_stamp_list[index]
+##        cloud.clearstamp(cloud_stamp)
+##        cloud_stamp_list.pop(0)
+##        new_cloud_pos = (cloud_pos[0] + 100, cloud_pos[1])
+##        #cloud.goto(new_cloud_pos)
+##        cloud_pos_list.pop(0)
+##        cloud_pos_list.append(new_cloud_pos)
+##        cloud_stamp_list.append(cloud.stamp())
+##    for c1 in cloud_pos_list:
+##        cloud.goto(c1)
 
-    for index in range(len(cloud_pos_list)):
-        cloud_pos = cloud_pos_list[index]
-        cloud_stamp = cloud_stamp_list[index]
-        cloud.clearstamp(cloud_stamp)
-        cloud.goto(cloud_pos[0] - 100, cloud_pos[1])
-        cloud_pos_list.append(cloud_pos)
-        cloud_stamp_list.append(cloud.stamp())
+##    for index in range(len(cloud_pos_list)):
+##        cloud_pos = cloud_pos_list[index]
+##        cloud_stamp = cloud_stamp_list[index]
+##        cloud.clearstamp(cloud_stamp)
+##        new_cloud_pos = (cloud_pos[0] - 100, cloud_pos[1])
+##        cloud.goto(new_cloud_pos)
+##        cloud_pos_list.append(new_cloud_pos)
+##        cloud_stamp_list.append(cloud.stamp())
 
-    turtle.ontimer(move_clouds, 5000)
-move_clouds()
+##    turtle.ontimer(move_clouds, 5000)
+##move_clouds()
     
 
     
